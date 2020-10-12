@@ -53,11 +53,7 @@
       <groupId>javax.jms</groupId>
       <version>2.0.1</version>
     </dependency>
-    <dependency>
-      <artifactId>monitoring-common</artifactId>
-      <groupId>com.temafon.auditsystem</groupId>
-      <version>1.0.0</version>
-    </dependency>
+
   </dependencies>
   <description>opemmqmessagetonull</description>
   <groupId>org.tqa</groupId>

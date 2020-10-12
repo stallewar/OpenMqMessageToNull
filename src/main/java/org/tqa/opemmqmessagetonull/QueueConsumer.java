@@ -1,6 +1,5 @@
 package org.tqa.opemmqmessagetonull;
 
-import com.temafon.audit.messages.MonitoringEvent;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
@@ -15,10 +14,8 @@ public class QueueConsumer implements MessageListener {
   @SneakyThrows
   @Override
   public void onMessage(Message message) {
-    MonitoringEvent monitoringEvent;
     ObjectMessage objMsg = (ObjectMessage) message;
-    monitoringEvent = (MonitoringEvent) objMsg.getObject();
     log.info("Message received : " + "JmsMessageID = " + message.getJMSMessageID()
-        + ", ApplicationName = " + monitoringEvent.getApplication());
+        + ", ApplicationName = " + objMsg.getObject().toString());
   }
 }
