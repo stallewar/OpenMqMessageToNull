@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>opemmqmessagetonull</artifactId>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <groupId>org.springframework.boot</groupId>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-boot-devtools</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <optional>true</optional>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <artifactId>micrometer-registry-prometheus</artifactId>
+      <groupId>io.micrometer</groupId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <artifactId>spring-jms</artifactId>
+      <groupId>org.springframework</groupId>
+      <version>5.2.9.RELEASE</version>
+    </dependency>
+    <dependency>
+      <artifactId>imq</artifactId>
+      <groupId>com.sun.messaging.mq</groupId>
+      <version>4.6-b01</version>
+    </dependency>
+    <dependency>
+      <artifactId>javax.jms-api</artifactId>
+      <groupId>javax.jms</groupId>
+      <version>2.0.1</version>
+    </dependency>
+    <dependency>
+      <artifactId>monitoring-common</artifactId>
+      <groupId>com.temafon.auditsystem</groupId>
+      <version>1.0.0</version>
+    </dependency>
+  </dependencies>
+  <description>opemmqmessagetonull</description>
+  <groupId>org.tqa</groupId>
+  <modelVersion>4.0.0</modelVersion>
+  <name>opemmqmessagetonull</name>
+
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <relativePath/>
+    <version>2.3.4.RELEASE</version> <!-- lookup parent from repository -->
+  </parent>
+
+  <properties>
+    <java.version>1.8</java.version>
+  </properties>
+
+  <version>0.0.1-SNAPSHOT</version>
+
+</project>
