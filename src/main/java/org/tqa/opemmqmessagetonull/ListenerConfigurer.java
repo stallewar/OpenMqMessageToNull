@@ -34,6 +34,9 @@ public class ListenerConfigurer implements JmsListenerConfigurer {
   @Value("${mq.queue_name}")
   private String queueName;
 
+  @Value("${mq.concurrency}")
+  private String mqConcurrency;
+
   @SneakyThrows
   @Override
   public void configureJmsListeners(JmsListenerEndpointRegistrar registrar) {
@@ -45,7 +48,7 @@ public class ListenerConfigurer implements JmsListenerConfigurer {
         endpoint.setId(String.valueOf(UUID.randomUUID()));
         endpoint.setDestination(queueName);
         endpoint.setMessageListener(queueConsumer);
-        endpoint.setConcurrency("1-4");
+        endpoint.setConcurrency(mqConcurrency);
 
         QueueConnectionFactory queueConnectionFactory = new QueueConnectionFactory();
         queueConnectionFactory.setProperty(imqAddressList, s);
