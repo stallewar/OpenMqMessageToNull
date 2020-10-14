@@ -10,7 +10,6 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.annotation.JmsListenerConfigurer;
@@ -20,7 +19,7 @@ import org.springframework.jms.config.SimpleJmsListenerEndpoint;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
 
 @Configuration
-@EnableConfigurationProperties
+
 @EnableJms
 @Slf4j
 public class ListenerConfigurer implements JmsListenerConfigurer {
@@ -32,7 +31,7 @@ public class ListenerConfigurer implements JmsListenerConfigurer {
   private String mqAddresses;
 
   @Value("${mq.queue_name}")
-  private String queueName;
+  private String mqQueueName;
 
   @Value("${mq.concurrency}")
   private String mqConcurrency;
@@ -46,7 +45,7 @@ public class ListenerConfigurer implements JmsListenerConfigurer {
       try {
         SimpleJmsListenerEndpoint endpoint = new SimpleJmsListenerEndpoint();
         endpoint.setId(String.valueOf(UUID.randomUUID()));
-        endpoint.setDestination(queueName);
+        endpoint.setDestination(mqQueueName);
         endpoint.setMessageListener(queueConsumer);
         endpoint.setConcurrency(mqConcurrency);
 
@@ -64,7 +63,6 @@ public class ListenerConfigurer implements JmsListenerConfigurer {
 
         registrar.registerEndpoint(endpoint, factory);
         registrar.setContainerFactory(factory);
-
         log.info("Connecting to  = " + s);
       } catch (JMSException e) {
         e.printStackTrace();
