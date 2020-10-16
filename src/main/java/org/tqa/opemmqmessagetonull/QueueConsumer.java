@@ -16,8 +16,11 @@ public class QueueConsumer implements MessageListener {
   @Override
   public void onMessage(Message message) {
     if (message instanceof TextMessage) {
-      log.info("Message received : " + "JmsMessageID = " + message.getJMSMessageID()
-          + ((TextMessage) message).getText());
+      log.info(
+          "Message received : "
+              + "JmsMessageID = "
+              + message.getJMSMessageID()
+              + ((TextMessage) message).getText());
     }
     if (message instanceof ObjectMessage) {
       log.info("Message received : " + "JmsMessageID = " + message.getJMSMessageID() + message);

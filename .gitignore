@@ -37,4 +37,4 @@ mvnw
 mvnw.cmd
 .mvn
 .mvn/
-app.log
+/*.log.**
